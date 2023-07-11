@@ -51,3 +51,7 @@ export interface FacetFacet {
   key: string;
   value: number;
 }
+
+export interface PageChangeEvent {
+  selected: number;
+}

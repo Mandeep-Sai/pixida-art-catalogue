@@ -1,8 +1,17 @@
+import { useEffect } from "react";
 import { useFetchArts } from "../../utilities/fetchData";
 import "./Home.css";
 
-const Home = () => {
-  const { data, error, isError, isLoading } = useFetchArts();
+interface PageNumberProps {
+  pageNumber: number;
+}
+
+const Home = ({ pageNumber }: PageNumberProps) => {
+  const { data, isError, isLoading } = useFetchArts(pageNumber);
+
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
 
   if (isLoading) {
     return (
