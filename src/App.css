@@ -1,0 +1,7 @@
+.art_catalogue{
+  padding: 16px;
+}
+@font-face {
+  font-family: "roboto";
+  src: local("RobotoMedium") url('./fonts/Roboto/Roboto-Medium.ttf') format('ttf');
+}
