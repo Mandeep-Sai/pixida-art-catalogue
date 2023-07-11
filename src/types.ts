@@ -55,3 +55,7 @@ export interface FacetFacet {
 export interface PageChangeEvent {
   selected: number;
 }
+export interface PageNumberProps {
+  pageNumber: number;
+  checkData: (data: ArtObject[]) => void;
+}

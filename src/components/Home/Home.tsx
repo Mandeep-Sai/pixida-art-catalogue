@@ -1,16 +1,15 @@
 import { useEffect } from "react";
+import { ArtObject, PageNumberProps } from "../../types";
 import { useFetchArts } from "../../utilities/fetchData";
 import "./Home.css";
 
-interface PageNumberProps {
-  pageNumber: number;
-}
-
-const Home = ({ pageNumber }: PageNumberProps) => {
+const Home = ({ pageNumber, checkData }: PageNumberProps) => {
   const { data, isError, isLoading } = useFetchArts(pageNumber);
 
   useEffect(() => {
-    console.log(data);
+    if (data !== undefined) {
+      checkData(data);
+    }
   }, [data]);
 
   if (isLoading) {
@@ -33,7 +32,10 @@ const Home = ({ pageNumber }: PageNumberProps) => {
   return (
     <div className="home">
       <h1>All artwork</h1>
-      <div className="container-fluid" style={{ marginTop: "32px" }}>
+      <div
+        className="container-fluid"
+        style={{ marginTop: "32px", padding: "0px" }}
+      >
         <div className="row ">
           {data !== undefined &&
             data.map((artObject, index) => {
