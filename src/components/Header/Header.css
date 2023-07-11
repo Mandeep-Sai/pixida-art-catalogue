@@ -10,12 +10,11 @@
 .search_button{
     padding: 16px;
     border-radius: 40px;
-    background: #e10856;
+    background: var(--primary-color-1);
     box-shadow: 0px 16px 16px 4px #0000001F;
     border: none;
     font-size: 18px;
     font-weight: 500;
-    font-family: "Roboto";
     width: 150px;
     height: 48px;
     display: flex;
@@ -23,16 +22,20 @@
     align-items: center;
 }
 .search_input{
-height: 48px;
-width: 460px;
-border-radius: 80px;
-border: 1px solid #FFFFFF26;
-background: linear-gradient(0deg, rgba(31, 31, 31, 0.4), rgba(31, 31, 31, 0.4)),
-linear-gradient(0deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15));
-font-size: 24px;
-font-weight: 500;
-padding: 8px 24px;
-box-sizing: border-box;
+    height: 48px;
+    width: 460px;
+    border-radius: 80px;
+    border: 1px solid #FFFFFF26;
+    background: linear-gradient(0deg, rgba(31, 31, 31, 0.4), rgba(31, 31, 31, 0.4)),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15));
+    font-size: 24px;
+    font-weight: 500;
+    padding: 8px 24px;
+    box-sizing: border-box;
+}
+.search_input:focus-visible{
+    outline: none;
+
 }
 .header_search{
     display: flex;
@@ -73,7 +76,7 @@ box-sizing: border-box;
     .mobile_search_button{
         padding: 16px;
         border-radius: 40px;
-        background: #e10856;
+        background: var(--primary-color-1);
         box-shadow: 0px 16px 16px 4px #0000001F;
         border: none;
         font-family: "Roboto";
