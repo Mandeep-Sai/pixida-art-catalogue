@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { Arts } from "../../types";
 import { useFetchQueryResults } from "../../utilities/fetchData";
 import Pagination from "../Pagination/Pagination";
 import "./SearchResults.css";
@@ -37,20 +38,20 @@ const SearchResults = () => {
       </div>
     );
   }
-
-  return (
-    <div className="search_results">
-      <h1>
-        Found {data?.length} results for:
-        <span style={{ color: "white" }}>{query}</span>
-      </h1>
-      <div
-        className="container-fluid"
-        style={{ marginTop: "32px", padding: "0px" }}
-      >
-        <div className="row ">
-          {data !== undefined &&
-            data.map((artObject, index) => {
+  if (data && data.artObjects.length > 0) {
+    const { artObjects, count } = data;
+    return (
+      <div className="search_results">
+        <h1>
+          Found {count} results for:
+          <span style={{ color: "white" }}>{query}</span>
+        </h1>
+        <div
+          className="container-fluid"
+          style={{ marginTop: "32px", padding: "0px" }}
+        >
+          <div className="row ">
+            {artObjects.map((artObject, index) => {
               return (
                 <div
                   key={index}
@@ -72,11 +73,24 @@ const SearchResults = () => {
                 </div>
               );
             })}
+          </div>
         </div>
-      </div>
 
-      <Pagination pageSetter={setPage} currentPage={currentPage} />
-    </div>
+        <Pagination pageSetter={setPage} currentPage={currentPage} />
+      </div>
+    );
+  }
+
+  return (
+    <h1
+      style={{
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+      }}
+    >
+      No data
+    </h1>
   );
 };
 

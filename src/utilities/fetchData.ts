@@ -7,7 +7,7 @@ export const useFetchArts = (pageNumber: number) => {
       `https://www.rijksmuseum.nl/api/nl/collection?key=2esrTh6M&p=${pageNumber}&ps=9`
     );
     const parsedResponse: Arts = (await response.json()) as Arts;
-    return parsedResponse.artObjects;
+    return parsedResponse;
   });
 };
 
@@ -28,6 +28,6 @@ export const useFetchQueryResults = (query: string, pageNumber: number) => {
     );
     const parsedResponse = (await response.json()) as Arts;
     console.log(parsedResponse.count);
-    return parsedResponse.artObjects;
+    return parsedResponse;
   });
 };
