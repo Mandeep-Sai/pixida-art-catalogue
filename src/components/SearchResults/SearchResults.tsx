@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ITEMS_PER_PAGE, MAX_LIMIT } from "../../constants";
-
 import { useFetchQueryResults } from "../../utilities/fetchData";
 import Pagination from "../Pagination/Pagination";
 import "./SearchResults.css";
 import art_placeholder_img from "../../assets/art_placeholder_img.jpg";
+import Loading from "../static/Loading";
+import Error from "../static/Error";
+import NoData from "../static/NoData";
 
 const SearchResults = () => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -25,20 +27,11 @@ const SearchResults = () => {
   }, [data]);
 
   if (isLoading) {
-    return (
-      <div className="loading">
-        <div className="spinner-border" role="status"></div>
-      </div>
-    );
+    return <Loading />;
   }
 
   if (isError) {
-    return (
-      <div className="error">
-        <h1>Error while fetching Data.</h1>
-        <h2>Please visit after some time.</h2>
-      </div>
-    );
+    return <Error />;
   }
   if (data && data.artObjects.length > 0) {
     const { artObjects, count } = data;
@@ -74,11 +67,6 @@ const SearchResults = () => {
                           className="art_image"
                         />
                       )}
-                      {/* <img
-                        src={artObject.headerImage.url}
-                        alt="art image"
-                        className="art_image"
-                      /> */}
                       <p className="art_first_maker">
                         {artObject.principalOrFirstMaker}
                       </p>
@@ -102,17 +90,7 @@ const SearchResults = () => {
     );
   }
 
-  return (
-    <h1
-      style={{
-        position: "absolute",
-        top: "50%",
-        left: "50%",
-      }}
-    >
-      No data
-    </h1>
-  );
+  return <NoData />;
 };
 
 export default SearchResults;

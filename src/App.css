@@ -6,3 +6,20 @@
   font-family: "roboto";
   src: local("RobotoMedium") url('./fonts/Roboto/Roboto-Medium.ttf') format('ttf');
 }
+
+.loading{
+  /* header height 112px and outer padding 32px */
+  height: calc(100vh - 144px); 
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.error{
+  height: calc(100vh - 144px);
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}

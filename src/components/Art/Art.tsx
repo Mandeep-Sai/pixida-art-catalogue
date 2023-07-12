@@ -4,6 +4,8 @@ import { useFetchSingleArt } from "../../utilities/fetchData";
 import prev_red from "./../../assets/prev_red.svg";
 import "./Art.css";
 import art_placeholder_img from "../../assets/art_placeholder_img.jpg";
+import Loading from "../static/Loading";
+import Error from "../static/Error";
 
 const Art = () => {
   const params = useParams();
@@ -23,20 +25,11 @@ const Art = () => {
   };
 
   if (isLoading) {
-    return (
-      <div className="loading">
-        <div className="spinner-border" role="status"></div>
-      </div>
-    );
+    return <Loading />;
   }
 
   if (isError) {
-    return (
-      <div className="error">
-        <h1>Error while fetching Data.</h1>
-        <h2>Please visit after some time.</h2>
-      </div>
-    );
+    return <Error />;
   }
   return (
     <div className="art_detail">

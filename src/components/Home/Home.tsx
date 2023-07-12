@@ -5,6 +5,9 @@ import { useFetchArts } from "../../utilities/fetchData";
 import Pagination from "../Pagination/Pagination";
 import "./Home.css";
 import art_placeholder_img from "../../assets/art_placeholder_img.jpg";
+import Loading from "../static/Loading";
+import Error from "../static/Error";
+import NoData from "../static/NoData";
 
 const Home = () => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -19,20 +22,11 @@ const Home = () => {
   }, [data]);
 
   if (isLoading) {
-    return (
-      <div className="loading">
-        <div className="spinner-border" role="status"></div>
-      </div>
-    );
+    return <Loading />;
   }
 
   if (isError) {
-    return (
-      <div className="error">
-        <h1>Error while fetching Data.</h1>
-        <h2>Please visit after some time.</h2>
-      </div>
-    );
+    return <Error />;
   }
   if (data) {
     const { artObjects } = data;
@@ -86,17 +80,7 @@ const Home = () => {
     );
   }
 
-  return (
-    <h1
-      style={{
-        position: "absolute",
-        top: "50%",
-        left: "50%",
-      }}
-    >
-      No data
-    </h1>
-  );
+  return <NoData />;
 };
 
 export default Home;

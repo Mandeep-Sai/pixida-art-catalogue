@@ -48,17 +48,3 @@
     border-radius: 0px 8px 0px 8px;
 
 }
-.loading{
-   height: calc(100vh - 144px);;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.error{
-    height: calc(100vh - 144px);
-    display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-}
