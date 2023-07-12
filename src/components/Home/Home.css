@@ -50,14 +50,18 @@
 
 }
 .loading{
-    height: 80vh;
+    /* header height 112px and outer padding 32px */
+    height: calc(100vh - 144px); 
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 .error{
-    height: 55vh;
-    text-align: center;
-    margin-top: 20%;
+    height: calc(100vh - 144px);
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
 }

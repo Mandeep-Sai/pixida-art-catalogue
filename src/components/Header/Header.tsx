@@ -7,12 +7,13 @@ import { useRef } from "react";
 
 function Header() {
   const size = useWindowSize();
-  const queryRef = useRef(null);
+  const queryRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
 
   const search = () => {
     if (queryRef.current !== null) {
-      navigate(`/${queryRef.current["value"] as string}`);
+      navigate(`/${queryRef.current["value"]}`);
+      queryRef.current.value = "";
     }
   };
 
@@ -31,6 +32,7 @@ function Header() {
               size.width < 992 ? "Search..." : "Please type in your search"
             }
             ref={queryRef}
+            // onClick={updateQueryRef}
           />
           {/* Display only search icon instead of text inside button in mobile version */}
           {size.width < 768 ? (

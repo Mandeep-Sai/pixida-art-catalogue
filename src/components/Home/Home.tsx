@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { MAX_LIMIT } from "../../constants";
 import { useFetchArts } from "../../utilities/fetchData";
 import Pagination from "../Pagination/Pagination";
 import "./Home.css";
@@ -66,7 +67,11 @@ const Home = () => {
             })}
           </div>
         </div>
-        <Pagination pageSetter={setPage} currentPage={currentPage} />
+        <Pagination
+          pageSetter={setPage}
+          currentPage={currentPage}
+          count={MAX_LIMIT}
+        />
       </div>
     );
   }

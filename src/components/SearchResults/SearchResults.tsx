@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Arts } from "../../types";
+import { ITEMS_PER_PAGE, MAX_LIMIT } from "../../constants";
+
 import { useFetchQueryResults } from "../../utilities/fetchData";
 import Pagination from "../Pagination/Pagination";
 import "./SearchResults.css";
@@ -76,7 +77,13 @@ const SearchResults = () => {
           </div>
         </div>
 
-        <Pagination pageSetter={setPage} currentPage={currentPage} />
+        {count > ITEMS_PER_PAGE && (
+          <Pagination
+            pageSetter={setPage}
+            currentPage={currentPage}
+            count={count > MAX_LIMIT ? MAX_LIMIT : count}
+          />
+        )}
       </div>
     );
   }

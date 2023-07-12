@@ -2,7 +2,7 @@ import ReactPaginate from "react-paginate";
 import { PageChangeEvent, PageSetterProps } from "../../types";
 import "./Pagination.css";
 
-function Pagination({ pageSetter, currentPage }: PageSetterProps) {
+function Pagination({ pageSetter, currentPage, count }: PageSetterProps) {
   const onPageChange = (event: PageChangeEvent) => {
     pageSetter(event.selected);
   };
@@ -10,7 +10,7 @@ function Pagination({ pageSetter, currentPage }: PageSetterProps) {
     <>
       <ReactPaginate
         className="pagination"
-        pageCount={20}
+        pageCount={Math.ceil(count / 9)}
         nextLabel=">"
         previousLabel="<"
         nextClassName="pagination_next"

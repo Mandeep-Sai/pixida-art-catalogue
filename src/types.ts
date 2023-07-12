@@ -62,6 +62,7 @@ export interface PageNumberProps {
 export interface PageSetterProps {
   pageSetter: (n: number) => void;
   currentPage: number;
+  count: number;
 }
 
 //
