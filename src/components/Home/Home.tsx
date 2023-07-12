@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { ArtObject, PageNumberProps } from "../../types";
 import { useFetchArts } from "../../utilities/fetchData";
 import "./Home.css";
@@ -44,17 +45,19 @@ const Home = ({ pageNumber, checkData }: PageNumberProps) => {
                   key={index}
                   className="col col-12 col-sm-6 col-md-6 col-lg-4 "
                 >
-                  <div className="art">
-                    <img
-                      src={artObject.headerImage.url}
-                      alt="art image"
-                      className="art_image"
-                    />
-                    <p className="art_first_maker">
-                      {artObject.principalOrFirstMaker}
-                    </p>
-                    <h3 className="art_title">{artObject.title}</h3>
-                  </div>
+                  <Link to={`/${artObject.objectNumber}`}>
+                    <div className="art">
+                      <img
+                        src={artObject.headerImage.url}
+                        alt="art image"
+                        className="art_image"
+                      />
+                      <p className="art_first_maker">
+                        {artObject.principalOrFirstMaker}
+                      </p>
+                      <h3 className="art_title">{artObject.title}</h3>
+                    </div>
+                  </Link>
                 </div>
               );
             })}
