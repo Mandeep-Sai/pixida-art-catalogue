@@ -5,6 +5,7 @@ import { ITEMS_PER_PAGE, MAX_LIMIT } from "../../constants";
 import { useFetchQueryResults } from "../../utilities/fetchData";
 import Pagination from "../Pagination/Pagination";
 import "./SearchResults.css";
+import art_placeholder_img from "../../assets/art_placeholder_img.jpg";
 
 const SearchResults = () => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -60,11 +61,24 @@ const SearchResults = () => {
                 >
                   <Link to={`/art/${artObject.objectNumber}`}>
                     <div className="art">
-                      <img
+                      {artObject.headerImage.url ? (
+                        <img
+                          src={artObject.headerImage.url}
+                          alt="art image"
+                          className="art_image"
+                        />
+                      ) : (
+                        <img
+                          src={art_placeholder_img}
+                          alt="art image"
+                          className="art_image"
+                        />
+                      )}
+                      {/* <img
                         src={artObject.headerImage.url}
                         alt="art image"
                         className="art_image"
-                      />
+                      /> */}
                       <p className="art_first_maker">
                         {artObject.principalOrFirstMaker}
                       </p>

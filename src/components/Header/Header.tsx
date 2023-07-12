@@ -17,6 +17,15 @@ function Header() {
     }
   };
 
+  const onKeyPressEvent = (
+    event: React.KeyboardEvent<HTMLDivElement>
+  ): void => {
+    // 'keypress' event misbehaves on mobile so we track 'Enter' key via 'keydown' event
+    if (event.key === "Enter") {
+      search();
+    }
+  };
+
   return (
     <>
       <div className="header">
@@ -32,7 +41,7 @@ function Header() {
               size.width < 992 ? "Search..." : "Please type in your search"
             }
             ref={queryRef}
-            // onClick={updateQueryRef}
+            onKeyDown={onKeyPressEvent}
           />
           {/* Display only search icon instead of text inside button in mobile version */}
           {size.width < 768 ? (
