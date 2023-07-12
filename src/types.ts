@@ -59,6 +59,10 @@ export interface PageNumberProps {
   pageNumber: number;
   checkData: (data: ArtObject[]) => void;
 }
+export interface PageSetterProps {
+  pageSetter: (n: number) => void;
+  currentPage: number;
+}
 
 //
 export interface ArtDetails {

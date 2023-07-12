@@ -1,17 +1,16 @@
-import { useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArtObject, PageNumberProps } from "../../types";
 import { useFetchArts } from "../../utilities/fetchData";
+import Pagination from "../Pagination/Pagination";
 import "./Home.css";
 
-const Home = ({ pageNumber, checkData }: PageNumberProps) => {
-  const { data, isError, isLoading } = useFetchArts(pageNumber);
+const Home = () => {
+  const [currentPage, setCurrentPage] = useState(0);
+  const { data, isError, isLoading } = useFetchArts(currentPage + 1);
 
-  useEffect(() => {
-    if (data !== undefined) {
-      checkData(data);
-    }
-  }, [data]);
+  const setPage = (page: number) => {
+    setCurrentPage(page);
+  };
 
   if (isLoading) {
     return (
@@ -63,6 +62,7 @@ const Home = ({ pageNumber, checkData }: PageNumberProps) => {
             })}
         </div>
       </div>
+      <Pagination pageSetter={setPage} currentPage={currentPage} />
     </div>
   );
 };

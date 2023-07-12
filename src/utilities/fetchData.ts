@@ -1,4 +1,4 @@
-import { ArtDetails, ArtObject, Arts } from "../types";
+import { ArtDetails, Arts } from "../types";
 import { useQuery } from "react-query";
 
 export const useFetchArts = (pageNumber: number) => {
