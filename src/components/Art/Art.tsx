@@ -8,6 +8,7 @@ const Art = () => {
   const params = useParams();
   const objId = params.id !== undefined ? params.id : "";
   const { data, isLoading, isError } = useFetchSingleArt(objId);
+  const navigate = useNavigate();
 
   const getDimensions = (dimensions: Dimension[]) => {
     return dimensions
@@ -16,7 +17,6 @@ const Art = () => {
       )
       .join(" x ");
   };
-  const navigate = useNavigate();
   const goBack = () => {
     navigate(-1);
   };

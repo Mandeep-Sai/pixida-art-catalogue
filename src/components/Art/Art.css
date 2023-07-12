@@ -1,16 +1,13 @@
-/* .art_detail{
-    height: 80vh;
-} */
 .navigate_back{
     display: flex;
-    gap: 8px;
+    gap: 12px;
     margin: 32px 0px;
     height: 24px;
     align-items: center;
     cursor: pointer;
 } 
 .navigate_back img{
-    height: 12px;
+    height: 16px;
 }
  .navigate_back h5{
     color :var(--primary-color-1);

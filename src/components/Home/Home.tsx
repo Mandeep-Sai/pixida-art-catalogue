@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useFetchArts } from "../../utilities/fetchData";
 import Pagination from "../Pagination/Pagination";
@@ -6,11 +6,15 @@ import "./Home.css";
 
 const Home = () => {
   const [currentPage, setCurrentPage] = useState(0);
-  const { data, isError, isLoading } = useFetchArts(currentPage + 1);
+  const { data, isError, isLoading } = useFetchArts(currentPage + 1); // since the page starts from 0 in pagination npm package
 
   const setPage = (page: number) => {
     setCurrentPage(page);
   };
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 }); // after clicking on pagination scroll to top of page
+  }, [data]);
 
   if (isLoading) {
     return (
