@@ -20,3 +20,14 @@ export const useFetchSingleArt = (objectId: string) => {
     return parsedResponse.artObject;
   });
 };
+
+export const useFetchQueryResults = (query: string, pageNumber: number) => {
+  return useQuery(["search_results", query, pageNumber], async () => {
+    const response = await fetch(
+      `https://www.rijksmuseum.nl/api/nl/collection?key=2esrTh6M&q=${query}&ps=9&p=${pageNumber}`
+    );
+    const parsedResponse = (await response.json()) as Arts;
+    console.log(parsedResponse.count);
+    return parsedResponse.artObjects;
+  });
+};

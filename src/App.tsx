@@ -4,6 +4,7 @@ import "./App.css";
 import Art from "./components/Art/Art";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
+import SearchResults from "./components/SearchResults/SearchResults";
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/:id" element={<Art />} />
+        <Route path="/art/:id" element={<Art />} />
+        <Route path="/:query" element={<SearchResults />} />
       </Routes>
     </div>
   );

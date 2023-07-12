@@ -2,10 +2,20 @@ import Logo from "../../assets/Logo.svg";
 import "./Header.css";
 import useWindowSize from "../../utilities/useWindowSize";
 import { FaSearch } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useRef } from "react";
 
 function Header() {
   const size = useWindowSize();
+  const queryRef = useRef(null);
+  const navigate = useNavigate();
+
+  const search = () => {
+    if (queryRef.current !== null) {
+      navigate(`/${queryRef.current["value"] as string}`);
+    }
+  };
+
   return (
     <>
       <div className="header">
@@ -20,6 +30,7 @@ function Header() {
             placeholder={
               size.width < 992 ? "Search..." : "Please type in your search"
             }
+            ref={queryRef}
           />
           {/* Display only search icon instead of text inside button in mobile version */}
           {size.width < 768 ? (
@@ -27,7 +38,9 @@ function Header() {
               <FaSearch />
             </button>
           ) : (
-            <button className="search_button">Search</button>
+            <button className="search_button" onClick={search}>
+              Search
+            </button>
           )}
         </div>
       </div>

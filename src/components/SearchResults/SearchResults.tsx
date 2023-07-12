@@ -1,12 +1,17 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { useFetchArts } from "../../utilities/fetchData";
+import { Link, useParams } from "react-router-dom";
+import { useFetchQueryResults } from "../../utilities/fetchData";
 import Pagination from "../Pagination/Pagination";
-import "./Home.css";
+import "./SearchResults.css";
 
-const Home = () => {
+const SearchResults = () => {
   const [currentPage, setCurrentPage] = useState(0);
-  const { data, isError, isLoading } = useFetchArts(currentPage + 1); // since the page starts from 0 in pagination npm package
+  const params = useParams();
+  const query = params.query;
+  const { data, isLoading, isError } = useFetchQueryResults(
+    query as string,
+    currentPage + 1
+  );
 
   const setPage = (page: number) => {
     setCurrentPage(page);
@@ -34,8 +39,11 @@ const Home = () => {
   }
 
   return (
-    <div className="home">
-      <h1>All artwork</h1>
+    <div className="search_results">
+      <h1>
+        Found {data?.length} results for:
+        <span style={{ color: "white" }}>{query}</span>
+      </h1>
       <div
         className="container-fluid"
         style={{ marginTop: "32px", padding: "0px" }}
@@ -66,9 +74,10 @@ const Home = () => {
             })}
         </div>
       </div>
+
       <Pagination pageSetter={setPage} currentPage={currentPage} />
     </div>
   );
 };
 
-export default Home;
+export default SearchResults;
