@@ -55,3 +55,9 @@
     padding: 10px;
     margin: 32px 0px;
 }
+
+@media (max-width:767px){
+    .artist_image img{
+        height: 450px;
+    }
+}

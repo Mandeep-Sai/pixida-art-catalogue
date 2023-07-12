@@ -4,6 +4,7 @@ import { MAX_LIMIT } from "../../constants";
 import { useFetchArts } from "../../utilities/fetchData";
 import Pagination from "../Pagination/Pagination";
 import "./Home.css";
+import art_placeholder_img from "../../assets/art_placeholder_img.jpg";
 
 const Home = () => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -51,11 +52,20 @@ const Home = () => {
                 >
                   <Link to={`/art/${artObject.objectNumber}`}>
                     <div className="art">
-                      <img
-                        src={artObject.headerImage.url}
-                        alt="art image"
-                        className="art_image"
-                      />
+                      {artObject.headerImage.url ? (
+                        <img
+                          src={artObject.headerImage.url}
+                          alt="art image"
+                          className="art_image"
+                        />
+                      ) : (
+                        <img
+                          src={art_placeholder_img}
+                          alt="art image"
+                          className="art_image"
+                        />
+                      )}
+
                       <p className="art_first_maker">
                         {artObject.principalOrFirstMaker}
                       </p>

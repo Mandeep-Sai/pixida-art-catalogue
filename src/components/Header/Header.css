@@ -52,6 +52,7 @@
     }
     .header{
         padding: 24px;
+        height: 98px;
     }
     .search_input{
         width: 280px;
@@ -62,6 +63,7 @@
  @media (max-width: 767px){
     .header{
         padding: 16px;
+        height: 70px;
     }
     .logo{
         width: 100px;
@@ -75,13 +77,14 @@
         /* height: 36px; */
     }
     .mobile_search_button{
-        padding: 16px;
+      
         border-radius: 40px;
         background: var(--primary-color-1);
         box-shadow: 0px 16px 16px 4px #0000001F;
         border: none;
         font-family: "Roboto";
         height: 36px;
+        width: 36px;
         display: flex;
         justify-content: center;
         align-items: center;

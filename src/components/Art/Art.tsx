@@ -3,6 +3,7 @@ import { Dimension } from "../../types";
 import { useFetchSingleArt } from "../../utilities/fetchData";
 import prev_red from "./../../assets/prev_red.svg";
 import "./Art.css";
+import art_placeholder_img from "../../assets/art_placeholder_img.jpg";
 
 const Art = () => {
   const params = useParams();
@@ -46,7 +47,15 @@ const Art = () => {
       {data !== undefined && (
         <>
           <div className="artist_image">
-            <img src={data.webImage.url} alt="" />
+            {data.webImage ? (
+              <img src={data.webImage.url} alt="" />
+            ) : (
+              <img
+                src={art_placeholder_img}
+                alt="art image"
+                className="art_image"
+              />
+            )}
             <h1>{data.longTitle}</h1>
           </div>
           <div className="artist_info">
