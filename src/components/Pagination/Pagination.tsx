@@ -19,6 +19,7 @@ function Pagination({ pageSetter, currentPage, count }: PageSetterProps) {
         onPageChange={onPageChange}
         marginPagesDisplayed={2}
         pageRangeDisplayed={2}
+        data-testid="pagination"
       />
     </>
   );

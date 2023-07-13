@@ -28,7 +28,7 @@ const Home = () => {
   if (isError) {
     return <Error />;
   }
-  if (data) {
+  if (data?.artObjects !== undefined && data?.artObjects.length > 0) {
     const { artObjects } = data;
     return (
       <div className="home">
@@ -36,6 +36,7 @@ const Home = () => {
         <div
           className="container-fluid"
           style={{ marginTop: "32px", padding: "0px" }}
+          data-testid="home_content"
         >
           <div className="row ">
             {artObjects.map((artObject, index) => {

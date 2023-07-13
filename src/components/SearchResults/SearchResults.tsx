@@ -44,6 +44,7 @@ const SearchResults = () => {
         <div
           className="container-fluid"
           style={{ marginTop: "32px", padding: "0px" }}
+          data-testid="searchresults_content"
         >
           <div className="row ">
             {artObjects.map((artObject, index) => {

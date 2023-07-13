@@ -6,6 +6,7 @@ const NoData = () => {
         top: "50%",
         left: "50%",
       }}
+      data-testid="nodata"
     >
       No data
     </h1>

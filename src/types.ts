@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface Arts {
   elapsedMilliseconds: number;
   count: number;
@@ -63,6 +65,10 @@ export interface PageSetterProps {
   pageSetter: (n: number) => void;
   currentPage: number;
   count: number;
+}
+
+export interface wrapperProps {
+  children: ReactNode;
 }
 
 //

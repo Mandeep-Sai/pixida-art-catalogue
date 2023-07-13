@@ -1,11 +1,11 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { Dimension } from "../../types";
 import { useFetchSingleArt } from "../../utilities/fetchData";
 import prev_red from "./../../assets/prev_red.svg";
 import "./Art.css";
 import art_placeholder_img from "../../assets/art_placeholder_img.jpg";
 import Loading from "../static/Loading";
 import Error from "../static/Error";
+import { getDimensions } from "../../utilities/utils";
 
 const Art = () => {
   const params = useParams();
@@ -13,13 +13,6 @@ const Art = () => {
   const { data, isLoading, isError } = useFetchSingleArt(objId);
   const navigate = useNavigate();
 
-  const getDimensions = (dimensions: Dimension[]) => {
-    return dimensions
-      .map(
-        (dimension) => `${dimension.type} ${dimension.value} ${dimension.unit}`
-      )
-      .join(" x ");
-  };
   const goBack = () => {
     navigate(-1);
   };
@@ -32,7 +25,7 @@ const Art = () => {
     return <Error />;
   }
   return (
-    <div className="art_detail">
+    <div className="art_detail" data-testid="art_content">
       <div className="navigate_back" onClick={goBack}>
         <img src={prev_red} alt="" />
         <h5>Back to the List</h5>
