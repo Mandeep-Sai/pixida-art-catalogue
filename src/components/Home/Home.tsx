@@ -56,7 +56,7 @@ const Home = () => {
                       ) : (
                         <img
                           src={art_placeholder_img}
-                          alt="art image"
+                          alt="placeholder image"
                           className="art_image"
                         />
                       )}

@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import Home from "./Home";
 import { BrowserRouter } from "react-router-dom";
+import { wrapperProps } from "../../types";
 
 const sampleData = {
   elapsedMilliseconds: 0,
@@ -93,7 +94,7 @@ const queryClient = new QueryClient({
   },
 });
 
-const wrapper = ({ children }) => (
+const wrapper = ({ children }: wrapperProps) => (
   <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
 );
 

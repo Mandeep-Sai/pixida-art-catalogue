@@ -27,18 +27,18 @@ const Art = () => {
   return (
     <div className="art_detail" data-testid="art_content">
       <div className="navigate_back" onClick={goBack}>
-        <img src={prev_red} alt="" />
+        <img src={prev_red} alt="back button" />
         <h5>Back to the List</h5>
       </div>
       {data !== undefined && (
         <>
           <div className="artist_image">
             {data.webImage ? (
-              <img src={data.webImage.url} alt="" />
+              <img src={data.webImage.url} alt="artist imahe" />
             ) : (
               <img
                 src={art_placeholder_img}
-                alt="art image"
+                alt="placeholder image"
                 className="art_image"
               />
             )}

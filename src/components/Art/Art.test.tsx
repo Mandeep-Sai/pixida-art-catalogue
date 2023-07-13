@@ -2,7 +2,6 @@ import { render, screen } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import Art from "./Art";
 import { BrowserRouter } from "react-router-dom";
-import { Simulate } from "react-dom/test-utils";
 import { wrapperProps } from "../../types";
 
 const sampleData = {

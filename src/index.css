@@ -1,25 +1,21 @@
 :root {
- 
   line-height: 1.5;
-
-
   color-scheme: light dark;
-  color: #C4C4C4;
+  color: var(--font-color-1);
   background: linear-gradient(112.68deg, #23293E 0%, #1D1D1D 57.46%) !important;
-  
   font-family: "roboto" !important;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-
   --primary-color-1: #e10856;
+  --font-color-1: #c4c4c4;
   
 }
 
 body{
-  color: #C4C4C4 !important;
+  color: var(--font-color-1) !important;
   background-color: transparent !important;
   margin: 0px;
   font-family: 'roboto',sans-serif !important;
@@ -43,7 +39,7 @@ h5{
   margin: 0px !important;
 }
 a{
-  color: #C4C4C4 !important;
+  color: var(--font-color-1) !important;
 }
 p,h4,h1,h2,h3,h5{
   margin: 0px !important;

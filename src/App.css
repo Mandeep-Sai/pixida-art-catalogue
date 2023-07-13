@@ -17,6 +17,7 @@
   
 }
 .error{
+  /* header height 112px and outer padding 32px */
   height: calc(100vh - 144px);
  display: flex;
  flex-direction: column;
